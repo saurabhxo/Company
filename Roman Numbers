@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+int value(char r)
+{
+    if(r=='M')
+    return 1000;
+    if(r=='D')
+    return 500;
+    if(r=='C')
+    return 100;
+    if(r=='L')
+    return 50;
+    if(r=='X')
+    return 10;
+    if(r=='V')
+    return 5;
+    if(r=='I')
+    return 1;
+}
+int romann(string str)
+{
+    int sum=0,i,v1,v2,n;
+    n=str.length();
+    for(i=0;i<n;i++)
+    {
+         v1=value(str[i]);
+        if(i+1<n)
+         {
+             v2=value(str[i+1]);
+             if(v1>=v2)
+             sum=sum+v1;
+             else
+             {
+                 sum=sum+(v2-v1);
+                 i++;
+             }
+         }
+         else
+         sum=sum+v1;
+      
+    }  return sum;
+}
+int main()
+{
+   int n;
+    string str;
+  
+    getline(cin,str);
+    n=str.length();
+    cout<<romann(str);
+          return 0;
+}
