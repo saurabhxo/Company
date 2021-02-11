@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string str;
+   getline(cin,str);
+   int n,i,j=0;
+   n=str.length();
+   for(i=0;i<n && str[i]!=' '; i++)
+   {
+       
+       cout<<str[i];
+   }
+   j=i;
+   string arr= "";
+   for(i=j;i<n;i++)
+   {
+       if(str[i]!=' ')
+       arr+=str[i];
+       else
+       {
+           reverse(arr.begin(),arr.end());
+           cout<<arr<<" ";
+           arr="";
+       }
+       
+   }
+    cout<<arr;
+  
+    return 0;
+}
+********************************************************************************************
+Input
+aba hhgh klm hjg
+Output
+aba hghh mlk hjg
